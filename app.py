@@ -160,3 +160,12 @@ def event_visualization(offset_minutes: int = fastapi.Query(60, gt = 0)):
 	buffer.seek(0)
 	
 	return fastapi.responses.StreamingResponse(buffer, media_type="image/png")
+
+@app.get("/metrics/pr-counts")
+def list_repositories():
+	logger.info("Requested list of repositories and their pull request counts.")
+
+	with event_store_lock:
+		repo_pr_counts = {repo: len(prs) for repo, prs in prs_by_repo.items()}
+
+	return repo_pr_counts

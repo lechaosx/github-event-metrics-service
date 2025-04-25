@@ -4,6 +4,7 @@ This service streams events from the GitHub API and provides metrics through a R
 
 - **Average Time Between Pull Requests**: For a given repository, the average time between PR creation events.
 - **Event Counts**: The total number of events of each type that occurred within a specified time offset (in minutes).
+- **Repositories and Pull Request Counts**: A list of all repositories with the count of pull request events for each.
 - **Visualization**: A graphical representation (bar chart) of event counts within the given time offset.
 
 ## Assumptions
@@ -100,6 +101,22 @@ My experience with significantly more complicated systems taught me not to overe
 	}
 	```
 
+### `GET /metrics/pr-counts`
+- **Description**: Returns a list of repositories and their corresponding pull request event counts.
+- **Example Request**:
+	```
+	GET /metrics/pr-counts
+	```
+
+- **Example Response**:
+	```json
+	{
+		"abc/def": 5,
+		"ghi/jkl": 3
+	}
+	```
+
+
 ### `GET /metrics/visualization`
 - **Description**: Generates and returns a bar chart visualizing the event counts for the last `n` minutes.
 - **Query Parameter**: `offset_minutes` (int) - The number of minutes to look back (defaults to 60, must be greater than 0).
@@ -108,7 +125,7 @@ My experience with significantly more complicated systems taught me not to overe
 	GET /metrics/visualization?offset_minutes=60
 	```
 
-- **Example Response**:  
+- **Example Response**:
 	This endpoint returns an image in PNG format, representing a bar chart of event counts for the specified time offset. The response will have the following content type:
 	```
 	Content-Type: image/png
