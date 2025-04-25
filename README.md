@@ -8,7 +8,7 @@ This service streams events from the GitHub API and provides metrics through a R
 - **Visualization**: A graphical representation (bar chart) of event counts within the given time offset.
 
 ## Assumptions
-The project is treated as the simplest possible solution to the assignment, NOT a production-ready service, which means:
+The project is treated as a simplest possible solution to the assignment, NOT a production-ready service, which means:
 
 - The data is stored in memory; no persistence across application restarts.
 - There is no cache eviction mechanism, the event store will grow indefinitely.
@@ -19,10 +19,10 @@ The project is treated as the simplest possible solution to the assignment, NOT 
 - No API versioning
 - No automatic testing
 - A single source file with no directory structure is sufficient.
-- Only the [https://api.github.com/events](https://api.github.com/events) endpoint is used, even though a repository-specific endpoint might be more sufficient for computing average pull request time.
+- Only the [https://api.github.com/events](https://api.github.com/events) endpoint is used, even though a repository-specific endpoint might be more suitable for computing average pull request time.
 
-If the expectations for the solution were different, let's discuss this in an interview!
-My experience with significantly more complicated systems taught me not to overengineer things.
+If the expectations for the solution were different in regards of complexity, performance or robustness, let's discuss this in an interview!
+My experience with significantly more complicated systems taught me to keep things stupid simple, especially in the first iteration.
 
 ## Architecture
 
