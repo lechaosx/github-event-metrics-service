@@ -20,7 +20,7 @@ The project is treated as the simplest possible solution to the assignment, NOT 
 - A single source file with no directory structure is sufficient.
 - Only the [https://api.github.com/events](https://api.github.com/events) endpoint is used, even though a repository-specific endpoint might be more sufficient for computing average pull request time.
 
-If the expectations for the solution were significantly different, let's discuss this in an interview!
+If the expectations for the solution were different, let's discuss this in an interview!
 My experience with significantly more complicated systems taught me not to overengineer things.
 
 ## Architecture
